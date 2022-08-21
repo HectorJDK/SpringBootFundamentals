@@ -15,7 +15,7 @@ public class Ticket {
     private Application application;
 
     @ManyToOne
-    @JoinTable(name ="ticket_release", joinColumns = @JoinColumn(name = "ticket_fk"), inverseJoinColumns = @JoinColumn(name = "release_fk"))
+    @JoinTable(name = "ticket_release", joinColumns = @JoinColumn(name = "ticket_fk"), inverseJoinColumns = @JoinColumn(name = "release_fk"))
     private Release release;
 
     private String status;
@@ -23,8 +23,7 @@ public class Ticket {
     public Ticket() {
     }
 
-    public Ticket(String title, String description,
-                  Application application, Release release, String status) {
+    public Ticket(String title, String description, Application application, Release release, String status) {
         this.title = title;
         this.description = description;
         this.application = application;
