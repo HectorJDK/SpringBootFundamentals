@@ -29,20 +29,20 @@ public class TzaController {
     @GetMapping("/tickets")
     public ResponseEntity<List<Ticket>> getAllTickets() {
         List<Ticket> result = ticketService.listTickets();
-        return new ResponseEntity<>(result, HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @GetMapping("/applications")
     public ResponseEntity<List<Application>> getAllApplications() {
         List<Application> result = applicationService.listApplications();
-        return new ResponseEntity<>(result, HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @GetMapping("/applications/{id}")
     public ResponseEntity<Application> getApplication(@PathVariable("id") Long id) {
         try {
             Application result = applicationService.findApplication(id);
-            return new ResponseEntity<>(result, HttpStatus.ACCEPTED);
+            return new ResponseEntity<>(result, HttpStatus.OK);
         } catch (ApplicationNotFoundException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
         }
